@@ -26,6 +26,8 @@ def choose_skills_unit_test(test_number):
                 print("Failed")
 
 def choose_skills():
+    # TODO: Doesn't take into account player may have two powers and they are linked to Brain or Brawn not both
+    # TODO: need to add +/- modifiers in this function
     total_skills_points = 9
     character_skill_list = {}
     list_o_skills = ["Academics(Brain)" , "Athletics(Brawn)", "Electronics(Brain)", "Driving(Brain)", "Fighting(Brawn)", "Healing(Brain)",
@@ -37,7 +39,6 @@ def choose_skills():
         how_much_skill = 0
         if which_skill == 11 and total_skills_points>1:
             how_much_skill = random.randint(1, total_skills_points//2)
-            print(how_much_skill)
             total_skills_points -= how_much_skill*2
             character_skill_list[list_o_skills[which_skill]] = how_much_skill
         elif which_skill!=11:
@@ -56,10 +57,8 @@ character_sheet.append("Armor: " + str(20-number) + "\n")
 character_sheet.append('Health Points: 3 \n')
 character_sheet.append('Skills: \n')
 skill_dict = choose_skills()
-# TODO: add a modifier function
 for element in skill_dict.keys():
-    character_sheet.append(str(element) + ': ' + str(skill_dict[element]) + '\n')
+    character_sheet.append('    ' + str(element) + ': ' + str(skill_dict[element]) + '\n')
 character_sheet.append('\n')
 character_sheet.append('Notes: \n')
-
 print(*character_sheet)

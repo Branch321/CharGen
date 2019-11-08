@@ -14,16 +14,14 @@ def choose_skills_unit_test(test_number):
         sum = 0
         dictionary = choose_skills()
         if "Power * (Brain / Brawn)" in dictionary.keys():
-            print(dictionary)
             for element in dictionary.keys():
                 if element == "Power * (Brain / Brawn)":
                     sum+=dictionary[element]*2
                 else:
                     sum += dictionary[element]
-            if sum == 9:
-                print("Passing")
-            else:
-                print("Failed")
+            if sum != 9:
+                print("Failed: ",end='')
+                print(dictionary)
 
 def choose_skills():
     total_skills_points = 9
@@ -38,16 +36,19 @@ def choose_skills():
         how_much_skill = 0
         if which_skill == 11 and total_skills_points>1:
             how_much_skill = random.randint(1, total_skills_points//2)
-            print(how_much_skill)
             total_skills_points -= how_much_skill*2
-            character_skill_list[list_o_skills[which_skill]] = how_much_skill
-        elif which_skill!=11:
+            if list_o_skills[which_skill] not in character_skill_list.keys():
+                character_skill_list[list_o_skills[which_skill]] = 0
+            character_skill_list[list_o_skills[which_skill]] += how_much_skill
+        elif which_skill!=11 and total_skills_points>=1:
             how_much_skill = random.randint(1,total_skills_points)
             total_skills_points -= how_much_skill
-            character_skill_list[list_o_skills[which_skill]] = how_much_skill
+            if list_o_skills[which_skill] not in character_skill_list.keys():
+                character_skill_list[list_o_skills[which_skill]] = 0
+            character_skill_list[list_o_skills[which_skill]] += how_much_skill
     return character_skill_list
 
-choose_skills_unit_test(100)
+choose_skills_unit_test(10000000)
 '''
 character_sheet = []
 character_sheet.append('Name: \n')

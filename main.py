@@ -7,8 +7,8 @@ import random
 def choose_skills_unit_test(test_number):
     '''
     Checking to make sure Power option works in choose_skills function
-    :param test_number:
-    :return:
+    :param test_number: Paramter that determins how many tests to run
+    :return: Dictionary full of chosen skills and the amount of points placed in them
     '''
     for i in range(0,test_number):
         sum = 0
@@ -33,7 +33,6 @@ def choose_skills():
     "Shooting(Brawn)", "Street Smart(Brain)", "Survival(Brawn)" , "Throwing(Brawn)"]
 
     while total_skills_points !=0:
-        # FIXME: still need to fix power stuff
         which_skill = random.randint(0,len(list_o_skills)-1)
         how_much_skill = 0
         if which_skill == 11 and total_skills_points>1:
@@ -47,19 +46,20 @@ def choose_skills():
             character_skill_list[list_o_skills[which_skill]] = how_much_skill
     return character_skill_list
 
-choose_skills_unit_test(100)
-'''
 character_sheet = []
 character_sheet.append('Name: \n')
+character_sheet.append('Bio: \n')
 # Generate your number
 number = random.randint(5,15)
 character_sheet.append('Number: ' + str(number) + ' ' + ("(Brain)\n" if number <= 10  else "(Brawn)\n"))
 character_sheet.append("Armor: " + str(20-number) + "\n")
 character_sheet.append('Health Points: 3 \n')
 character_sheet.append('Skills: \n')
-character_sheet.append(choose_skills())
+skill_dict = choose_skills()
+# TODO: add a modifier function
+for element in skill_dict.keys():
+    character_sheet.append(str(element) + ': ' + str(skill_dict[element]) + '\n')
 character_sheet.append('\n')
 character_sheet.append('Notes: \n')
 
 print(*character_sheet)
-'''

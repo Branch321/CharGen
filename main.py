@@ -37,13 +37,13 @@ def choose_skills():
         how_much_skill = 0
         if which_skill == 11 and total_skills_points>1:
             how_much_skill = random.randint(1, total_skills_points//2)
-            if list_o_skills[which_skill] not in character_skill_list.keys():
+            if list_o_skills[which_skill] not in character_skill_list:
                 character_skill_list[list_o_skills[which_skill]] = 0
             total_skills_points -= how_much_skill*2
             character_skill_list[list_o_skills[which_skill]] += how_much_skill
         elif which_skill != 11 and total_skills_points >= 1:
             how_much_skill = random.randint(1,total_skills_points)
-            if list_o_skills[which_skill] not in character_skill_list.keys():
+            if list_o_skills[which_skill] not in character_skill_list:
                 character_skill_list[list_o_skills[which_skill]] = 0
             total_skills_points -= how_much_skill
             character_skill_list[list_o_skills[which_skill]] += how_much_skill

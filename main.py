@@ -28,9 +28,12 @@ def choose_skills():
     # TODO: need to add +/- modifiers in this function
     total_skills_points = 9
     character_skill_list = {}
-    list_o_skills = ["Academics(Brain)" , "Athletics(Brawn)", "Electronics(Brain)", "Driving(Brain)", "Fighting(Brawn)", "Healing(Brain)",
-    "Intimidation(Brawn)", "Investigation(Brain)", "Notice(Brain)", "Performance(Brawn)", "Persuasion(Brawn)", "Power * (Brain / Brawn)", "Repair (Brain)", "Riding(Brawn)", "Science(Brain) ",
-    "Shooting(Brawn)", "Street Smart(Brain)", "Survival(Brawn)" , "Throwing(Brawn)"]
+    list_o_skills = ["Academics(Brain)", "Animal Handling(Brawn)", "Athletics(Brawn)", "Electronics(Brain)",
+                     "Driving(Brawn)", "Fighting(Brawn)", "Healing(Brain)",
+                     "Insight(Brain)", "Intimidation(Brawn)", "Investigation(Brain)", "Notice(Brain)",
+                     "Performance(Brawn)", "Persuasion(Brawn)", "Power * (Brain / Brawn)", "Repair (Brain)",
+                     "Science(Brain) ",
+                     "Shooting(Brain)", "Stealth(Brawn)", "Street Smart(Brain)", "Survival(Brawn)", "Throwing(Brawn)"]
 
     while total_skills_points !=0:
         which_skill = random.randint(0,len(list_o_skills)-1)
@@ -50,7 +53,7 @@ def choose_skills():
     return character_skill_list
 
 
-number_of_characters = 2
+number_of_characters = 1
 text_file_name = 'char_sheet.txt'
 with open(text_file_name, 'w+') as file:
     for x in range(0, number_of_characters):

@@ -53,16 +53,18 @@ def choose_skills():
     return character_skill_list
 
 
-number_of_characters = 1
+number_of_characters = 4
 text_file_name = 'char_sheet.txt'
 with open(text_file_name, 'w+') as file:
     for x in range(0, number_of_characters):
         character_sheet = []
         character_sheet.append('Name: \n')
         character_sheet.append('Bio: \n')
+        character_sheet.append('Public Goal: \n')
+        character_sheet.append('Private Goal: \n')
         # Generate your number
         number = random.randint(5, 15)
-        character_sheet.append('Number: ' + str(number) + ' ' + ("(Brain)\n" if number <= 10 else "(Brawn)\n"))
+        character_sheet.append('BB Number: ' + str(number) + ' ' + ("(Brain)\n" if number <= 10 else "(Brawn)\n"))
         character_sheet.append("Armor: " + str(20 - number) + "\n")
         character_sheet.append('Health Points: 5 \n')
         character_sheet.append('Weapon: \n')
